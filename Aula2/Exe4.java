@@ -12,9 +12,6 @@ public class Exe4 {
         System.out.println("\nAonde você gostaria de colocar o número?");
         int pos=in.nextInt()-1;
         in.nextLine();
-        System.out.println("Qual número você quer colocar?");
-        int num=in.nextInt();
-        in.nextLine();
 
         for(int i=0;i<=qtdUsa;i++){
             if(pos==usados[i]){
@@ -22,6 +19,10 @@ public class Exe4 {
                 add();
             } 
         }
+
+        System.out.println("Qual número você quer colocar?");
+        int num=in.nextInt();
+        in.nextLine();
         
         if(uPos<pos){
             uPos=pos;
@@ -60,15 +61,20 @@ public class Exe4 {
     }
 
     public static void listar(){
-        System.out.println("");
-        for (int i : usados) {
-            System.out.print(i+" ");
-        }
-        System.out.println(qtdUsa);
-
         System.out.println("|Lista do Vetor|");
         for (int i=0;i<=uPos;i++) {
             System.out.print(vet[i]+" ");
+        }
+    }
+
+    public static void organiza(){
+        int temp;
+        for(int i=qtdUsa;i>0;i--){
+            if(usados[i]<usados[i-1]){
+                temp=usados[i-1];
+                usados[i-1]=usados[i];
+                usados[i]=temp;
+            }
         }
     }
 
